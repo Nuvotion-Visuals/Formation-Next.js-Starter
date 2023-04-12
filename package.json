@@ -6,10 +6,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fresh": "yarn remove @avsync.live/formation && rm -rf ./node_modules/@avsync.live/formation"
+    "add-formation": "yarn add @avsync.live/formation",
+    "reformation": "yarn remove @avsync.live/formation && rm -rf ./node_modules/@avsync.live/formation && yarn add-formation"
   },
   "dependencies": {
-    "@avsync.live/formation": "@avsync.live/formation",
+    "@avsync.live/formation": "^0.9.146",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@types/styled-components": "^5.1.26",
     "next": "12.2.5",

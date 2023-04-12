@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import React from 'react'
 
 import '@avsync.live/formation/dist/index.dark.css'
+import 'styles/globals.css'
 
 // fontawesome
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -10,6 +11,7 @@ import * as far from '@fortawesome/free-regular-svg-icons'
 import * as fas from '@fortawesome/free-solid-svg-icons'
 library.add(
   // regular
+  // @ts-ignore
   far.faHeart, far.faPaperPlane, far.faCheckSquare, far.faSquare,
   fas.faEnvelope,
 

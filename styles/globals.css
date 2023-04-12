@@ -1,0 +1,3 @@
+ul li:before {
+  content: '•' !important;
+}

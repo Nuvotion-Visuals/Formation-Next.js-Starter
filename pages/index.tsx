@@ -2,10 +2,22 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 
 import {
-  Navigation
+  Page, RichTextEditor, markdownToHTML
 } from '@avsync.live/formation'
+import { useEffect, useState } from 'react';
 
 const Home: NextPage = () => {
+  const [readme, setReadme] = useState('');
+
+  useEffect(() => {
+    async function fetchReadme() {
+      const response = await fetch('https://raw.githubusercontent.com/AVsync-LIVE/Formation/main/README.md');
+      const text = await response.text();
+      setReadme(text);
+    }
+    fetchReadme();
+  }, []);
+  
   return (
     <div>
       <Head>
@@ -14,72 +26,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navigation
-        navLogoSrc={'https://avsync-live.github.io/formation/static/media/logo-white.ec140047.svg'}
-        navs={[
-          {
-            type: 'nav',
-            name: 'Home',
-            icon: 'info-circle',
-            href: '/'
-          },
-          {
-            type: 'nav',
-            name: 'Scenes',
-            icon: 'info-circle',
-            href: '/scenes',
-            toolTipTitle: 'Browse scenes to build your playlist'
-          },
-          {
-            type: 'clickNav',
-            name: 'Deck',
-            toolTipTitle: 'Perform live music visuals with the scenes in your playlist',
-            icon: 'info-circle',
-            href: '/app',
-            active: false,
-            onClick: ()=> {
-            
-            }
-          },
-          {
-            type: 'nav',
-            name: 'Mosh',
-            icon: 'info-circle',
-            href: '/mosh',
-            toolTipTitle: 'Datamosh video files'
-          },
-          {
-            type: 'spacer'
-          },
-          {
-            type: 'title',
-            title: 'Learn'
-          },
-          {
-            type: 'nav',
-            name: 'Tutorials',
-            icon: 'info-circle',
-            href: '/tutorials',
-            toolTipTitle: 'Learn how to create, perform, and share live music visuals'
-          },
-          {
-            type: 'nav',
-            name: 'FAQ',
-            icon: 'info-circle',
-            href: '/faq',
-            toolTipTitle: 'Get answers about AVsync.LIVE'
-          },
-          {
-            type: 'nav',
-            name: 'Contact Us',
-            icon: 'info-circle',
-            toolTipTitle: 'Contact us on Facebook Messenger, Instagram, or Discord',
-            onClick: () => {
-            }
-          }
-        ]}
-      >
-      </Navigation>
+      <Page>
+        {
+          readme &&
+            <RichTextEditor
+              value={String(markdownToHTML(readme))}
+              readOnly
+            />
+        }
+     
+      </Page>
     </div>
   )
 }

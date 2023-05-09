@@ -7,10 +7,13 @@
     "start": "next start",
     "lint": "next lint",
     "add-formation": "yarn add @avsync.live/formation",
-    "reformation": "yarn remove @avsync.live/formation && rm -rf ./node_modules/@avsync.live/formation && yarn add-formation"
+    "reformation": "yarn remove @avsync.live/formation && rm -rf ./node_modules/@avsync.live/formation && yarn add-formation",
+    "add-formation-local": "yarn add file:C:/dev/AVsync.LIVE/Formation/avsync.live-formation-0.9.164e.tgz",
+    "reformation-local": "yarn remove @avsync.live/formation && rm -rf ./node_modules/@avsync.live/formation && yarn add-formation-local"
   },
   "dependencies": {
-    "@avsync.live/formation": "^0.9.146",
+    "@annotationhub/react-golden-layout": "^2.3.2",
+    "@avsync.live/formation": "file:C:/dev/AVsync.LIVE/Formation/avsync.live-formation-0.9.164e.tgz",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@types/styled-components": "^5.1.26",
     "next": "12.2.5",

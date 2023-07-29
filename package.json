@@ -4,15 +4,18 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "cross-env ANALYZE=true yarn build",
     "start": "next start",
     "lint": "next lint",
     "add-formation": "yarn add @avsync.live/formation",
     "reformation": "yarn remove @avsync.live/formation && rm -rf ./node_modules/@avsync.live/formation && yarn add-formation"
   },
   "dependencies": {
-    "@avsync.live/formation": "^0.9.146",
+    "@avsync.live/formation": "^0.9.163",
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
+    "@next/bundle-analyzer": "^13.4.12",
     "@types/styled-components": "^5.1.26",
+    "cross-env": "^7.0.3",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
